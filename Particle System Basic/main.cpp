@@ -522,6 +522,12 @@
 //}
 
 
+
+
+//SMOKE PARTICLE
+
+
+
 //#include <iostream>
 //#include <vector>
 //#include <random>
@@ -663,8 +669,8 @@ const int SCREEN_WIDTH = 1920;  // Screen width
 const int SCREEN_HEIGHT = 1080; // Screen height
 const int PARTICLE_SIZE = 5;   // Particle size
 const float MAX_VELOCITY = 0.05f;    // Maximum particle velocity
-const int FADE_DELAY = 500;   // Fade delay in milliseconds
-const int SPREAD_FACTOR = 15;
+const int FADE_DELAY = 1000;   // Fade delay in milliseconds
+const int SPREAD_FACTOR = 55;
 
 
 class Particle
