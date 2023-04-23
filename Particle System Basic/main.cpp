@@ -661,6 +661,13 @@
 //    return 0;
 //}
 
+
+
+//Explosion
+
+
+
+
 #include <iostream>
 #include <vector>
 #include <SDL.h>
@@ -669,7 +676,7 @@ const int SCREEN_WIDTH = 1920;  // Screen width
 const int SCREEN_HEIGHT = 1080; // Screen height
 const int PARTICLE_SIZE = 5;   // Particle size
 const float MAX_VELOCITY = 0.05f;    // Maximum particle velocity
-const int FADE_DELAY = 1000;   // Fade delay in milliseconds
+const int FADE_DELAY = 700;   // Fade delay in milliseconds
 const int SPREAD_FACTOR = 55;
 
 
