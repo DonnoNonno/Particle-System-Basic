@@ -662,25 +662,27 @@
 const int SCREEN_WIDTH = 1920;  // Screen width
 const int SCREEN_HEIGHT = 1080; // Screen height
 const int PARTICLE_SIZE = 5;   // Particle size
-const int MAX_VELOCITY = 0.25;    // Maximum particle velocity
-const int FADE_DELAY = 1000;   // Fade delay in milliseconds
-const int spreadFactor = 5;
+const float MAX_VELOCITY = 0.05f;    // Maximum particle velocity
+const int FADE_DELAY = 500;   // Fade delay in milliseconds
+const int SPREAD_FACTOR = 15;
+
 
 class Particle
 {
 public:
     Particle(int x, int y) : x(x), y(y)
     {
-        float angle = static_cast<float>(rand()) / RAND_MAX * 2.0f * M_PI; // Random angle between 0 and 2*pi
-        float speed = static_cast<float>(rand()) / RAND_MAX * MAX_VELOCITY; // Random speed between 0 and MAX_SPEED
-        float spread = static_cast<float>(rand()) / RAND_MAX * spreadFactor; // Random spread factor between 0 and spreadFactor
+
+        float angle = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 2.0f * M_PI; // Random angle between 0 and 2 * pi
+        float speed = static_cast<float>(rand()) / RAND_MAX; // Random speed
+        float spread = static_cast<float>(rand()) / RAND_MAX * SPREAD_FACTOR; // Random spread factor between 0 and spreadFactor
 
         // Calculate velocity components based on angle, speed, and spread factor
         velocity_x = cos(angle) * (speed + spread);
         velocity_y = sin(angle) * (speed + spread);
         velocity_x *= 0.99; // 1% reduction in x-velocity per update
         velocity_y *= 0.99; // 1% reduction in y-velocity per update
-        
+
 
         age = 0;
         r = 255;
@@ -690,15 +692,15 @@ public:
 
     void update()
     {
-        
-        x += velocity_x;
-        y += velocity_y;
+
+        x += MAX_VELOCITY * velocity_x;
+        y += MAX_VELOCITY * velocity_y;
         ++age;
     }
 
-    void render(SDL_Renderer *renderer)
+    void render(SDL_Renderer* renderer)
     {
-        SDL_Rect rect = {x, y, PARTICLE_SIZE, PARTICLE_SIZE};
+        SDL_Rect rect = { x, y, PARTICLE_SIZE, PARTICLE_SIZE };
         int alpha = 255 - (age * 255) / FADE_DELAY;
         SDL_SetRenderDrawColor(renderer, r, g, b, alpha);
         SDL_RenderFillRect(renderer, &rect);
@@ -720,11 +722,11 @@ private:
     int b;
 };
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     SDL_Init(SDL_INIT_VIDEO);
-    SDL_Window *window;
-    SDL_Renderer *renderer;
+    SDL_Window* window;
+    SDL_Renderer* renderer;
     SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, 0, &window, &renderer);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
