@@ -73,4 +73,45 @@ How is it structured?
 
 ![Image Alt Text](https://github.com/DonnoNonno/Particle-System-Basic/blob/master/Images/Particle_sys_fire.jpg)
 
+*********
+*********
+# Exercise
 
+In this exercise, we will go through the process of creating a basic particle system in c++ using SDL.
+In order to do the exercise, there is a template in my [github repository](https://github.com/DonnoNonno/Particle-System-Basic) with some todo exercises.
+Now, we will see what to do in each part of the exercise:
+
+*********
+## TODO1: 
+
+Set the particle properties, the variable and the static ones. Do not forget the ones in the private part of the class.
+
+*********
+## TODO2:
+
+Create and calculate the angle, the speed and the spread with random nums. 
+
+Calculate the velocity based on angle, speed, and spread factor.
+
+Set the rgb parameters you like and put the time alive to 0.
+
+*********
+## TODO3:
+
+Update x and y of particle with the velocity
+
+*********
+## TODO4:
+
+Render particles using the template below:
+
+
+*********
+## Todo5:
+
+Instance when and where to start particles. (Using the left click of the mouse)
+
+*********
+## TODO6:
+
+Update the particles and check if they should be dead.
