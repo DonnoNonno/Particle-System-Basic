@@ -25,11 +25,13 @@ Particle systems are commonly used in video games, computer simulations, visual 
 
 Emitters are the sources from which particles are spawned or emitted. They define the position, direction, and behavior of particles as they are created and released into the scene. Emitters can have various shapes, sizes, and properties, and they control how particles are generated and distributed in the simulated environment.
 Particle systems can be designed to emit particles in various ways, such as from a point, a line, a shape, or even from other particles. Particle behavior can also be controlled using rules or forces, such as gravity, wind, and attraction/repulsion forces, to simulate realistic or stylized particle motion.
+
 ![Image Alt Text](https://github.com/DonnoNonno/Particle-System-Basic/blob/master/Images/DOOM-Eternal-Particles.png)
 
 ## Particles: 
 
 Particles are the small objects that are created and managed by a particle system. They are rendered as images or shapes and represent the individual elements that make up the visual effect. Particles can have properties such as position, velocity, size, color, and lifespan, which are manipulated over time to create the desired visual effect.
+
 ![Image Alt Text](https://github.com/DonnoNonno/Particle-System-Basic/blob/master/Images/Captura1.PNG)
 
 ## Parameters: 
@@ -57,6 +59,7 @@ Particle systems can be rendered using different techniques, such as point sprit
 
 Particle systems can also be combined with other computer graphics techniques, such as physics simulations, procedural generation, and artificial intelligence, to create more complex and interactive visual effects.
 How is it structured?
+
 ![Image Alt Text](https://github.com/DonnoNonno/Particle-System-Basic/blob/master/Images/Particle_sys_fire.jpg)
 
 
