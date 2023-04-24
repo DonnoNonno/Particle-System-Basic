@@ -1,6 +1,6 @@
 Link to Git-Hub: https://github.com/DonnoNonno/Particle-System-Basic
 
-## Introduction
+# Introduction
 
 In this document we will talk about particles used in video games, how it works and how to integrate it in your 2D project.
 This whole website will be focused on the c++ language and will be using Visual Studio 2020 and SDL 2.
@@ -11,24 +11,25 @@ One important thing that  you should know is that this is probably not the best 
 
 Then, Let’s get Started.
 
+![Image Alt Text](https://github.com/DonnoNonno/Particle-System-Basic/blob/master/Images/pink_sparkles_finished.gif)
 
 ## What is a particle system and why do we use it in video games?
 
 A particle system is a computer graphics technique used to simulate the behavior and appearance of a large number of small particles, such as dust, smoke, fire, water droplets, or other types of particles in a virtual environment. Each particle in a particle system is typically represented as a small point or sprite that has various attributes, such as position, velocity, size, color, and lifetime.
 Particle systems are commonly used in video games, computer simulations, visual effects in movies and animations, and other interactive applications to create realistic or stylized visual effects that can enhance the overall visual appeal and immersion of a virtual scene.
 
-## History: 
-
-The history of particle systems dates back to the 1980s when it was first introduced as a way to simulate natural phenomena in computer graphics. Over the years, particle systems have evolved and become an essential tool in computer graphics and game development for creating some stunning visual effects.
+# Parts:
 
 ## Emitters: 
 
 Emitters are the sources from which particles are spawned or emitted. They define the position, direction, and behavior of particles as they are created and released into the scene. Emitters can have various shapes, sizes, and properties, and they control how particles are generated and distributed in the simulated environment.
 Particle systems can be designed to emit particles in various ways, such as from a point, a line, a shape, or even from other particles. Particle behavior can also be controlled using rules or forces, such as gravity, wind, and attraction/repulsion forces, to simulate realistic or stylized particle motion.
+![Image Alt Text](https://github.com/DonnoNonno/Particle-System-Basic/blob/master/Images/DOOM-Eternal-Particles.png)
 
 ## Particles: 
 
 Particles are the small objects that are created and managed by a particle system. They are rendered as images or shapes and represent the individual elements that make up the visual effect. Particles can have properties such as position, velocity, size, color, and lifespan, which are manipulated over time to create the desired visual effect.
+![Image Alt Text](https://github.com/DonnoNonno/Particle-System-Basic/blob/master/Images/Captura1.PNG)
 
 ## Parameters: 
 
@@ -49,9 +50,12 @@ Pools are collections or caches of reusable objects that are used to efficiently
 
 Particle systems can be rendered using different techniques, such as point sprites, billboards, or textured quads, which are aligned to face the camera to give the illusion of three-dimensional particles. These particles can be rendered using various shading, blending, and texturing techniques to achieve the desired visual appearance.
 
+![Image Alt Text](https://github.com/DonnoNonno/Particle-System-Basic/blob/master/Images/preview.gif)
+
 ## Advanced Techniques: 
 
 Particle systems can also be combined with other computer graphics techniques, such as physics simulations, procedural generation, and artificial intelligence, to create more complex and interactive visual effects.
 How is it structured?
+![Image Alt Text](https://github.com/DonnoNonno/Particle-System-Basic/blob/master/Images/Particle_sys_fire.jpg)
 
 
