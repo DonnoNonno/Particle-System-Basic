@@ -1,12 +1,12 @@
 
 //Squares going up with different colours
-//#include <iostream>
-//#include <vector>
-//#include <SDL.h>
-//
-//
-//
-//// Particle class
+#include <iostream>
+#include <vector>
+#include <SDL.h>
+
+
+
+// Particle class
 //class Particle
 //{
 //public:
@@ -407,7 +407,7 @@ const int SCREEN_HEIGHT = 1080; // Screen height
 const int PARTICLE_SIZE = 5;   // Particle size
 const float MAX_VELOCITY = 0.05f;    // Maximum particle velocity
 const int FADE_DELAY = 700;   // Fade delay in milliseconds
-const int SPREAD_FACTOR = 55;
+const int SPREAD_FACTOR = 15;
 
 
 class Particle
@@ -429,8 +429,8 @@ public:
 
         age = 0;
         r = 255;
-        g = 255;
-        b = 255;
+        g = 0;
+        b = 0;
     }
 
     void update()
