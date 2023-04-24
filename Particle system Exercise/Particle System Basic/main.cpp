@@ -1,164 +1,10 @@
-//#include <SDL.h>
+//#include <iostream>
 //#include <vector>
-//#include <algorithm>
-//
-//// Particle class
-//class Particle
-//{
-//public:
-//    Particle(int x, int y, int lifetime, Uint32 color)
-//        : x(x), y(y), lifetime(lifetime), color(color)
-//    {
-//    }
-//
-//    void update()
-//    {
-//        lifetime--;
-//    }
-//
-//    void render(SDL_Renderer* renderer)
-//    {
-//        SDL_SetRenderDrawColor(renderer, (color >> 24) & 0xFF, (color >> 16) & 0xFF, (color >> 8) & 0xFF, color & 0xFF);
-//        SDL_RenderDrawPoint(renderer, x, y);
-//    }
-//
-//    bool isAlive() const
-//    {
-//        return lifetime > 0;
-//    }
-//
-//private:
-//    int x;
-//    int y;
-//    int lifetime;
-//    Uint32 color;
-//};
-//
-//int main(int argc, char* argv[])
-//{
-//    // Initialize SDL
-//    if (SDL_Init(SDL_INIT_VIDEO) != 0)
-//    {
-//        SDL_Log("Failed to initialize SDL: %s", SDL_GetError());
-//        return 1;
-//    }
-//
-//    // Create window
-//    SDL_Window* window = SDL_CreateWindow("Particle System", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, 0);
-//    if (!window)
-//    {
-//        SDL_Log("Failed to create window: %s", SDL_GetError());
-//        SDL_Quit();
-//        return 1;
-//    }
-//
-//    // Create renderer
-//    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-//    if (!renderer)
-//    {
-//        SDL_Log("Failed to create renderer: %s", SDL_GetError());
-//        SDL_DestroyWindow(window);
-//        SDL_Quit();
-//        return 1;
-//    }
-//
-//    // Particle variables
-//    std::vector<Particle> particles;
-//    int particleLifetime = 100;
-//    Uint32 particleColor = SDL_MapRGB(SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888), 255, 255, 255);
-//
-//    // Main loop
-//    bool quit = false;
-//    SDL_Event event;
-//    while (!quit)
-//    {
-//        while (SDL_PollEvent(&event))
-//        {
-//            if (event.type == SDL_QUIT)
-//            {
-//                quit = true;
-//            }
-//            else if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)
-//            {
-//                // Generate particles in a single burst
-//                int x = event.button.x;
-//                int y = event.button.y;
-//                for (int i = 0; i < 100; i++)
-//                {
-//                    int lifetime = particleLifetime + rand() % 100;
-//                    Uint32 color = particleColor;
-//                    particles.emplace_back(x, y, lifetime, color);
-//                }
-//            }
-//            else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_a)
-//            {
-//                // Decrease particle lifetime
-//                particleLifetime -= 10;
-//                if (particleLifetime < 0)
-//                {
-//                    particleLifetime = 0;
-//                }
-//            }
-//            else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_d)
-//            {
-//                // Increase particle lifetime
-//                particleLifetime += 10;
-//            }
-//            else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_r)
-//            {
-//                // Set particle color to red
-//                particleColor = SDL_MapRGB(SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888), 255, 0, 0);
-//            }
-//            else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_g)
-//            {
-//                // Set particle color to green
-//                particleColor = SDL_MapRGB(SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888), 0, 255, 0);
-//            }
-//            else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_b)
-//            {
-//                // Set particle color to blue
-//                particleColor = SDL_MapRGB(SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888), 0, 0, 255);
-//            }
-//        }
-//
-//        // Clear the renderer
-//        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-//        SDL_RenderClear(renderer);
-//
-//        // Update and render particles
-//        for (auto it = particles.begin(); it != particles.end();)
-//        {
-//            it->update();
-//            it->render(renderer);
-//            if (!it->isAlive())
-//            {
-//                it = particles.erase(it);
-//            }
-//            else
-//            {
-//                ++it;
-//            }
-//        }
-//
-//        // Update the screen
-//        SDL_RenderPresent(renderer);
-//    }
-//
-//    // Cleanup
-//    SDL_DestroyRenderer(renderer);
-//    SDL_DestroyWindow(window);
-//    SDL_Quit();
-//
-//    return 0;
-//}
-
-#include <iostream>
-#include <vector>
-#include <SDL.h>
+//#include <SDL.h>
 
 
 
-//// Particle class
+// Particle class with cubes of different colours
 //class Particle
 //{
 //public:
@@ -291,6 +137,9 @@
 //    return 0;
 //}
 
+
+//particles falling or going upwards
+
 //#include <iostream>
 //#include <vector>
 //#include <random>
@@ -403,125 +252,6 @@
 //
 //    return 0;
 //}
-
-
-//#include <iostream>
-//#include <vector>
-//#include <random>
-//#include <ctime>
-//#include <SDL.h>
-//
-//const int SCREEN_WIDTH = 800;
-//const int SCREEN_HEIGHT = 600;
-//
-//class Particle
-//{
-//public:
-//    Particle(int x, int y)
-//        : x_(x), y_(y), vel_x_(0), vel_y_(0), size_(2), alpha_(255)
-//    {
-//        // Randomize initial velocity
-//        std::mt19937 rng(std::time(0));
-//        std::uniform_real_distribution<float> dist(-2.0f, 2.0f);
-//        vel_x_ = dist(rng);
-//        vel_y_ = dist(rng);
-//    }
-//
-//    void update();
-//    void render(SDL_Renderer* renderer);
-//
-//    bool is_faded() const
-//    {
-//        return alpha_ <= 0;
-//    }
-//
-//private:
-//    int x_;
-//    int y_;
-//    float vel_x_;
-//    float vel_y_;
-//    float size_;
-//    int alpha_;
-//};
-//
-//void Particle::update()
-//{
-//    x_ += vel_x_;
-//    y_ += vel_y_;
-//    vel_x_ *= 0.98;
-//    vel_y_ *= 0.98;
-//    alpha_ -= 2;
-//    size_ += 0.1;
-//}
-//
-//void Particle::render(SDL_Renderer* renderer)
-//{
-//    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-//    SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, alpha_);
-//    SDL_Rect rect = { x_ - size_ / 2, y_ - size_ / 2, size_, size_ };
-//    SDL_RenderFillRect(renderer, &rect);
-//}
-//
-//int main(int argc, char* args[])
-//{
-//    SDL_Init(SDL_INIT_VIDEO);
-//
-//    SDL_Window* window = SDL_CreateWindow("Explosion Particle System", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-//        SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-//    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-//
-//    std::vector<Particle> particles;
-//
-//    bool quit = false;
-//    SDL_Event event;
-//
-//    while (!quit)
-//    {
-//        while (SDL_PollEvent(&event) != 0)
-//        {
-//            if (event.type == SDL_QUIT)
-//            {
-//                quit = true;
-//            }
-//            else if (event.type == SDL_MOUSEBUTTONUP && event.button.button == SDL_BUTTON_LEFT)
-//            {
-//                int mouse_x, mouse_y;
-//                SDL_GetMouseState(&mouse_x, &mouse_y);
-//                for (int i = 0; i < 100; ++i)
-//                {
-//                    particles.push_back(Particle(mouse_x, mouse_y));
-//                }
-//            }
-//        }
-//
-//        SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
-//        SDL_RenderClear(renderer);
-//
-//        for (auto it = particles.begin(); it != particles.end();)
-//        {
-//            it->update();
-//            if (it->is_faded())
-//            {
-//                it = particles.erase(it);
-//            }
-//            else
-//            {
-//                it->render(renderer);
-//                ++it;
-//            }
-//        }
-//
-//        SDL_RenderPresent(renderer);
-//    }
-//
-//    SDL_DestroyRenderer(renderer);
-//    SDL_DestroyWindow(window);
-//    SDL_Quit();
-//
-//    return 0;
-//}
-
-
 
 
 //SMOKE PARTICLE
@@ -676,11 +406,6 @@ const int SCREEN_WIDTH = 1920;  // Screen width
 const int SCREEN_HEIGHT = 1080; // Screen height
 
 //TODO1: Declare variables and its values
-// 
-//const int PARTICLE_SIZE = 5;   // Particle size
-//const float MAX_VELOCITY = 0.05f;    // Maximum particle velocity
-//const int FADE_DELAY = 700;   // Fade delay in milliseconds
-//const int SPREAD_FACTOR = 55;
 
 
 class Particle
@@ -695,51 +420,27 @@ public:
 
         // Calculate velocity components based on angle, speed, and spread factor
 
-        //velocity_x = cos(angle) * (speed + spread);
-        //velocity_y = sin(angle) * (speed + spread);
-        //velocity_x *= 0.99; // 1% reduction in x-velocity per update
-        //velocity_y *= 0.99; // 1% reduction in y-velocity per update
+        //SET time alive to 0 and colour of particles.
 
-        //TODO2: SET time alive to 0 and colour of particles.
-        /*age = 0;
-        r = 255;
-        g = 255;
-        b = 255;*/
     }
 
     void update()
     {
         //TODO3: Update x & y values with the velocity
-       /* x += MAX_VELOCITY * velocity_x;
-        y += MAX_VELOCITY * velocity_y;
-        ++age;*/
     }
 
     void render(SDL_Renderer* renderer)
     {
         //Todo4: Render Particles
-        /*SDL_Rect rect = { x, y, PARTICLE_SIZE, PARTICLE_SIZE };
-        int alpha = 255 - (age * 255) / FADE_DELAY;
-        SDL_SetRenderDrawColor(renderer, r, g, b, alpha);
-        SDL_RenderFillRect(renderer, &rect);*/
     }
 
     bool isFaded()
     {
-        //
-       /* return age >= FADE_DELAY;*/
+        //Todo4:Return when particle time is over
     }
 
 private:
     //TODO1: Set particle properties
-    /*float x;
-    float y;
-    int velocity_x;
-    int velocity_y;
-    int age;
-    int r;
-    int g;
-    int b;*/
 };
 
 int main(int argc, char* argv[])
@@ -768,32 +469,13 @@ int main(int argc, char* argv[])
                 quit = true;
             }
             //TODO5: Instance when and where to start the particles
-            /*else if (event.type == SDL_MOUSEBUTTONDOWN)
-            {
-                
-                int mouse_x = event.button.x;
-                int mouse_y = event.button.y;
-                for (int i = 0; i < num_particles; ++i)
-                {
-                    Particle particle(mouse_x, mouse_y);
-                    particles.push_back(particle);
-                }
-            }*/
+            
         }
 
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
         //TODO6: Render and De-Render Particles
-        /*for (int i = 0; i < particles.size(); ++i)
-        {
-            particles[i].update();
-            particles[i].render(renderer);
-            if (particles[i].isFaded())
-            {
-                particles.erase(particles.begin() + i);
-                --i;
-            }
-        }*/
+        
 
         SDL_RenderPresent(renderer);
     }
